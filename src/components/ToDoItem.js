@@ -1,10 +1,10 @@
 import React from "react";
 
-function ToDoItem () {
+function ToDoItem (props) {
   return (
     <li>
       <span>V</span>
-      <p>Cry a lot and alone</p>
+      <p>{props.text}</p>
       <spam>X</spam>
     </li>
   );

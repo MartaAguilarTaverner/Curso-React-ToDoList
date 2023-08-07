@@ -6,16 +6,27 @@ import { ToDoItem } from './components/ToDoItem';
 
 import './App.css';
 
+const defaultToDo = [{ text:'Cut onion', completed: false },
+  { text:'Finishing the course of React', completed: false },
+  { text: 'Eat lunch', completed: true },
+  { text: 'Home chores', completed: true },
+  {text: 'Daily training', completed: false }
+];
+
 function App() {
   return (
     <div className="App">
-      <ToDoCounter />
+      <ToDoCounter completed={16} total={25} />
       <ToDoSearcher />
 
       <ToDoList>
-        <ToDoItem />
-        <ToDoItem />
-        <ToDoItem />
+        {defaultToDo.map((todo) => (
+          <ToDoItem
+            key={todo.text}
+            text={todo.text}
+            completed={todo.completed}
+          />
+        ))}
       </ToDoList>
       <CreateToDoButton />
 

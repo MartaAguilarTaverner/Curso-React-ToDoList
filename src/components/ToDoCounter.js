@@ -1,9 +1,9 @@
 import React from "react";
 
-function ToDoCounter () {
+function ToDoCounter ({ total, completed }) {
   return (
     <h1>
-      Completed 3 of 5
+      Completed {completed} of {total} tasks.
     </h1>
   );
 };
