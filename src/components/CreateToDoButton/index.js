@@ -4,7 +4,7 @@ import './CreateToDoButton.css';
 
 function CreateToDoButton() {
   return(
-      <button className="createButton">New Task</button>
+      <button className="createButton" onClick={() => console.log('click')}>New Task</button>
 
   );
 };

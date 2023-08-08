@@ -11,9 +11,9 @@ function ToDoItem (props) {
       <p className={`ToDoItem-p ${props.completed && 'ToDoItem-p--complete'}`}>
         {props.text}
       </p>
-      <spam className='Icon Icon-delete'>
+      <span className='Icon Icon-delete'>
         X
-      </spam>
+      </span>
     </li>
   );
 }

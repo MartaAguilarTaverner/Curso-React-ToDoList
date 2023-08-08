@@ -4,7 +4,12 @@ import './ToDoSearcher.css';
 
 function ToDoSearcher() {
   return (
-    <input placeholder="cutting onion" className="ToDoSearcher" />
+    <input placeholder="cutting onion"
+      className="ToDoSearcher"
+      onChange={(event) => {
+        console.log(event.target.value);
+      }}
+    />
   );
 };
 
