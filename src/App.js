@@ -1,10 +1,12 @@
+import React from 'react';
+
 import { ToDoCounter } from './components/ToDoCounter';
 import { ToDoSearcher } from './components/ToDoSearcher';
 import { ToDoList } from './components/ToDoList';
 import { CreateToDoButton } from './components/CreateToDoButton';
 import { ToDoItem } from './components/ToDoItem';
 
-import './App.css';
+import "./App.css";
 
 const defaultToDo = [{ text:'Cut onion', completed: false },
   { text:'Finishing the course of React', completed: false },

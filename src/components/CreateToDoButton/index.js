@@ -1,8 +1,11 @@
 import React from "react";
 
+import './CreateToDoButton.css';
+
 function CreateToDoButton() {
   return(
-    <button>Create new task</button>
+      <button className="createButton">New Task</button>
+
   );
 };
 
