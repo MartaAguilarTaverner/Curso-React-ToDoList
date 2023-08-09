@@ -23,24 +23,51 @@ function App() {
   const completedToDos = toDos.filter(toDo => !!toDo.completed).length;
   const totalToDos = toDos.length;
 
+  const searchedToDos = toDos.filter((toDo) => {
+      const toDoText = toDo.text.toLowerCase();
+      const searchedText = searchValue.toLocaleLowerCase();
+      return toDoText.includes(searchedText);
+      /* return toDo.text.toLowerCase().includes(searchValue.toLowerCase()); */
+    }
+  );
+
+  const completeToDo = (text) => {
+    const newToDos = [...toDos];
+    const toDoIndex = newToDos.findIndex(
+      (toDo) => toDo.text === text
+    );
+    newToDos[toDoIndex].completed = true;
+    setToDos(newToDos);
+  }
+
+  const deleteToDo = (text) => {
+    const newToDos = [...toDos];
+    const toDoIndex = newToDos.findIndex(
+      (toDo) => toDo.text === text
+    );
+    newToDos.splice(toDoIndex, 1);
+    setToDos(newToDos);
+  }
+
 
   return (
     <div className="App">
       <ToDoCounter completed={completedToDos} total={totalToDos} />
-      <ToDoSearcher
-        searchValue={searchValue}
-        setSearchValue={setSearchValue}
-      />
+
+      <ToDoSearcher searchValue={searchValue} setSearchValue={setSearchValue} />
 
       <ToDoList>
-        {defaultToDos.map((toDo) => (
+        {searchedToDos.map((toDo) => (
           <ToDoItem
             key={toDo.text}
             text={toDo.text}
             completed={toDo.completed}
+            onComplete={() => completeToDo(toDo.text)}
+            onDelete={() => deleteToDo(toDo.text)}
           />
         ))}
       </ToDoList>
+
       <CreateToDoButton />
 
     </div>

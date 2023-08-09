@@ -5,12 +5,26 @@
   margin-top: 1rem;
   margin-bottom: 0.5rem;
   box-shadow: 10px 5px 5px blueviolet;
-
 }
-
-h1 {
+.completedTasks h1 {
   font-size: 2.2rem;
   color: blueviolet;
+  text-align: center;
+  margin: 0;
+  padding: 1rem;
+}
+.completedAllTasks {
+  border: 0.2rem;
+  border-style: hidden;
+  border-radius: 1%;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  box-shadow: 10px 10px 10px rgb(231, 32, 241);
+}
+
+.completedAllTasks h1 {
+  font-size: 2.5rem;
+  color: rgb(159, 0, 194);
   text-align: center;
   margin: 0;
   padding: 1rem;
