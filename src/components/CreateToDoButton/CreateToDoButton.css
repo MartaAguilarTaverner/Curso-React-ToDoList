@@ -7,14 +7,14 @@
   font-size: 1rem;
   position: relative;
   bottom: 4rem;
-  right: -12rem;
+  right: -24rem;
   font-weight: bold;
   color: rgb(255, 255, 255);
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 10%;
-  width: 10%;
+  height: 5rem;
+  width: 10rem;
 }
 
 .createButton:hover {

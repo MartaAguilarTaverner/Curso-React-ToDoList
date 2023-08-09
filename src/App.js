@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { ToDoCounter } from './components/ToDoCounter';
 import { ToDoSearcher } from './components/ToDoSearcher';
@@ -8,25 +8,36 @@ import { ToDoItem } from './components/ToDoItem';
 
 import "./App.css";
 
-const defaultToDo = [{ text:'Cut onion', completed: false },
+const defaultToDos = [{ text:'Cut onion', completed: false },
   { text:'Finishing the course of React', completed: false },
   { text: 'Eat lunch', completed: true },
   { text: 'Home chores', completed: true },
-  {text: 'Daily training', completed: false }
+  {text: 'Daily training', completed: false },
+  {text: 'Use derivate states', completed: true }
 ];
 
 function App() {
+  const [toDos, setToDos] =useState(defaultToDos);
+  const [searchValue, setSearchValue] = useState('');
+
+  const completedToDos = toDos.filter(toDo => !!toDo.completed).length;
+  const totalToDos = toDos.length;
+
+
   return (
     <div className="App">
-      <ToDoCounter completed={16} total={25} />
-      <ToDoSearcher />
+      <ToDoCounter completed={completedToDos} total={totalToDos} />
+      <ToDoSearcher
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
+      />
 
       <ToDoList>
-        {defaultToDo.map((todo) => (
+        {defaultToDos.map((toDo) => (
           <ToDoItem
-            key={todo.text}
-            text={todo.text}
-            completed={todo.completed}
+            key={toDo.text}
+            text={toDo.text}
+            completed={toDo.completed}
           />
         ))}
       </ToDoList>

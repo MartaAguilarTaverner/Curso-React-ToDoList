@@ -2,14 +2,14 @@
   border: 0.2rem;
   border-style: hidden;
   border-radius: 1%;
-  margin-top: 3rem;
-  margin-bottom: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
   box-shadow: 10px 5px 5px blueviolet;
 
 }
 
 h1 {
-  font-size: 2.7rem;
+  font-size: 2.2rem;
   color: blueviolet;
   text-align: center;
   margin: 0;
@@ -17,6 +17,6 @@ h1 {
 }
 
 span {
-  font-size: 3.2rem;
+  font-size: 3rem;
   color: rgb(121, 0, 234);
 }

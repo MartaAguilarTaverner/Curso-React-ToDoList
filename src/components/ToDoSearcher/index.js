@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 
 import './ToDoSearcher.css';
 
-function ToDoSearcher() {
-  const [searchValue, setSearchValue] = useState('');
+function ToDoSearcher({
+  searchValue,
+  setSearchValue,
+}) {
 
   return (
     <input placeholder="cutting onion"

@@ -14,9 +14,9 @@
 .ToDoItem-p {
   margin: 1rem 0 1rem 1rem;
   width: calc(100% - 120px);
-  font-size: 2rem;
-  line-height: 3rem;
-  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
 }
 .ToDoItem-p--complete {
   text-decoration: line-through rgb(114, 6, 6);
