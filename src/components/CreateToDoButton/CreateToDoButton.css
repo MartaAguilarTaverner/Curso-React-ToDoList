@@ -2,19 +2,18 @@
   background-color: rgb(138 36 193);
   box-shadow: 3px 8px 10px 2px #523555e6;
   border: hidden;
-  border-radius: 50%;
+  border-radius: 2%;
   cursor: pointer;
   font-size: 1rem;
   position: relative;
-  bottom: 4rem;
-  right: -24rem;
+  bottom: 1rem;
   font-weight: bold;
   color: rgb(255, 255, 255);
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 5rem;
-  width: 10rem;
+  height: 3rem;
+  width: 30rem;
 }
 
 .createButton:hover {

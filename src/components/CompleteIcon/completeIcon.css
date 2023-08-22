@@ -1,0 +1,22 @@
+
+.Icon-filled-done {
+  cursor: pointer;
+  display: flex;
+  position: absolute;
+  left: 0.2rem;
+  font-size: 2.5rem;
+  color: rgb(26, 129, 26);
+}
+
+.Icon-unfilled {
+  cursor: pointer;
+  display: flex;
+  position: absolute;
+  left: 0.2rem;
+  font-size: 2.5rem;
+  color: rgb(32, 67, 32);
+}
+
+.Icon-unfilled:hover {
+  color: rgb(8, 170, 8);
+}

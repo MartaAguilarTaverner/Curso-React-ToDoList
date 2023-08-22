@@ -1,0 +1,11 @@
+.Icon-delete {
+  cursor: pointer;
+  display: flex;
+  position: absolute;
+  right: 0.2rem;
+  font-size: 2.5rem;
+  color: rgb(117, 64, 64);
+}
+.Icon-delete:hover {
+  color: rgb(163, 19, 19);
+}

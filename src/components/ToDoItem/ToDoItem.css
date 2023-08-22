@@ -2,52 +2,38 @@
   background-color: rgb(198, 148, 231);
   position: relative;
   display: flex;
-  justify-content: center;
   align-items: center;
   margin-top: 1rem;
-  box-shadow: 1px 2px 5px 0px rgb(47, 40, 52)
+  box-shadow: 1px 2px 5px 0px rgb(47, 40, 52);
+  height: 3.2rem;
+  width: 100%;
 }
 .ToDoItem:hover {
   box-shadow: 1px 2px 5px 1px black;
 }
 
-.ToDoItem-p {
-  margin: 1rem 0 1rem 1rem;
-  width: calc(100% - 120px);
-  font-size: 1.5rem;
+.ToDoItem p {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 1rem 1rem 1rem;
+  font-size: 1.3rem;
   line-height: 2rem;
   font-weight: 700;
 }
-.ToDoItem-p--complete {
-  text-decoration: line-through rgb(114, 6, 6);
-}
 
-.Icon {
+.Delete-icon {
   cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 2rem;
-  width: 2rem;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.Icon-check {
   position: absolute;
-  color: rgb(89, 79, 100);
-  left: 1rem;
+  top: -0.5rem;
+  right: -0.5rem;
+  font-size: 2.5rem;
+  color: rgb(117, 64, 64);
 }
 
-.Icon-check--active{
-  color: green;
-}
-
-.Icon-delete {
-  position: absolute;
-  top: -1rem;
-  right: 0;
-}
-.Icon-delete:hover {
-  color: red;
+.ToDoItem-p--complete {
+  text-decoration: line-through rgb(90, 2, 2);
+  text-decoration-thickness: 0.2rem;
 }

@@ -16,7 +16,7 @@ function ToDoCounter ({ total, completed }) {
 
       <div className="completedTasks">
         <h1>
-          Completed <span>{completed}</span> of <span>{total}</span> tasks.
+          Completed <span className="Number-finished">{completed}</span> of <span className="Number-total">{total}</span> tasks.
         </h1>
       </div>
   );
