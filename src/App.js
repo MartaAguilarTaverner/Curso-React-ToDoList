@@ -8,7 +8,7 @@ import { ToDoItem } from './components/ToDoItem';
 
 import "./App.css";
 
-const defaultToDos = [{ text:'Cut onion', completed: false },
+/* const defaultToDos = [{ text:'Cut onion', completed: false },
   { text:'Finishing the course of React', completed: false },
   { text: 'Eat lunch', completed: true },
   { text: 'Home chores', completed: true },
@@ -16,8 +16,22 @@ const defaultToDos = [{ text:'Cut onion', completed: false },
   {text: 'Use derivate states', completed: true }
 ];
 
+localStorage.setItem('TODOS_V1', JSON.stringify(defaultToDos)); */
+/* localStorage.removeItem('TODOS_V1'); */
+
 function App() {
-  const [toDos, setToDos] =useState(defaultToDos);
+  const localStorageToDos = localStorage.getItem('TODOS_V1');
+
+  let parsedToDos;
+
+  if (!localStorageToDos) {
+    localStorage.setItem('TODOS_V1', JSON.stringify([]));
+    parsedToDos= [];
+  }else {
+    parsedToDos = JSON.parse(localStorageToDos);
+  }
+
+  const [toDos, setToDos] =useState(parsedToDos);
   const [searchValue, setSearchValue] = useState('');
 
   const completedToDos = toDos.filter(toDo => !!toDo.completed).length;
@@ -31,13 +45,19 @@ function App() {
     }
   );
 
+  const saveToDos = (newToDos) => {
+    localStorage.setItem ('TODOS_V1', JSON.stringify(newToDos));
+
+    setToDos(newToDos);
+  }
+
   const completeToDo = (text) => {
     const newToDos = [...toDos];
     const toDoIndex = newToDos.findIndex(
       (toDo) => toDo.text === text
     );
     newToDos[toDoIndex].completed = true;
-    setToDos(newToDos);
+    saveToDos(newToDos);
   }
 
   const deleteToDo = (text) => {
@@ -46,7 +66,7 @@ function App() {
       (toDo) => toDo.text === text
     );
     newToDos.splice(toDoIndex, 1);
-    setToDos(newToDos);
+    saveToDos(newToDos);
   }
 
 
