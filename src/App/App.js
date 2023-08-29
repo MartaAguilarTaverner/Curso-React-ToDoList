@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import { AppUI } from './AppUI';
 
@@ -6,17 +6,16 @@ import { useLocalStorage } from '../hooks/useLocalStorage';
 import "./App.css";
 
 function App() {
-  const [toDos, saveToDos] = useLocalStorage('TODOS_V1', []);
+  const {
+    item: toDos,
+    saveItem: saveToDos,
+    loading,
+    error
+    } = useLocalStorage('TODOS_V1', []);
   const [searchValue, setSearchValue] = useState('');
 
   const completedToDos = toDos.filter(toDo => !!toDo.completed).length;
   const totalToDos = toDos.length;
-
-  console.log('Log 1');
-  useEffect(() => {
-    console.log('Log 2');
-  });
-  console.log('Log 3');
 
   const searchedToDos = toDos.filter((toDo) => {
       const toDoText = toDo.text.toLowerCase();
@@ -45,6 +44,8 @@ function App() {
 
   return (
     <AppUI
+    loading={loading}
+    error={error}
     completedToDos={completedToDos}
     totalToDos={totalToDos}
     searchValue={searchValue}
