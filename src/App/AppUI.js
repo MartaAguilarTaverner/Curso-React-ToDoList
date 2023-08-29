@@ -5,6 +5,9 @@ import { ToDoSearcher } from '../components/ToDoSearcher';
 import { ToDoList } from '../components/ToDoList';
 import { CreateToDoButton } from '../components/CreateToDoButton';
 import { ToDoItem } from '../components/ToDoItem';
+import { ToDoLoading } from '../components/ToDoLoading';
+import { ToDoError } from '../components/ToDoError';
+import { EmptyToDo } from '../components/EmptyToDo';
 
 import './App.css'
 
@@ -20,9 +23,9 @@ const renderTodoItemList = (searchedToDos, completeToDo, deleteToDo) => searched
 
 const renderToDoList = (renderToDoListProps) => (
   <ToDoList>
-      {renderToDoListProps.error && <p>Alert Error!!!</p>}
+      {renderToDoListProps.error && <ToDoError/>}
       {renderToDoListProps.searchedToDos.length === 0
-        ? <p>Create your first To Do!!</p>
+        ? <EmptyToDo />
         : renderTodoItemList(renderToDoListProps.searchedToDos, renderToDoListProps.completeToDo, renderToDoListProps.deleteToDo)
       }
   </ToDoList>
@@ -68,7 +71,7 @@ function AppUI({
 
   return (
     <div className="App">
-      {loading ? <p>Loading...</p> : renderUI(renderUIProps)}
+      {loading ? < ToDoLoading /> : renderUI(renderUIProps)}
     </div>
   );
 
