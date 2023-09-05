@@ -1,13 +1,12 @@
 import React, { useContext } from "react";
 
+import { ToDoContext } from '../../Context';
+
 import './ToDoSearcher.css';
-import { ToDoContext } from "../../Context";
 
 function ToDoSearcher() {
-  const {
-    searchValue,
-    setSearchValue,
-  } = useContext(ToDoContext)
+  const { searchValue, setSearchValue } = useContext(ToDoContext)
+
   return (
     <input placeholder="cutting onion"
       className="ToDoSearcher"

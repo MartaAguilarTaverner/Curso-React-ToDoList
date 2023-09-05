@@ -1,4 +1,4 @@
-import React, { useState, createContext, useMemo, useCallback} from "react";
+import React, { useState, createContext } from "react";
 
 import { useLocalStorage } from "../hooks/useLocalStorage";
 
@@ -12,6 +12,7 @@ function ToDoProvider({ children }) {
     error
     } = useLocalStorage('TODOS_V1', []);
   const [searchValue, setSearchValue] = useState('');
+  const [openModal, setOpenModal] = useState(false);
 
   const completedToDos = toDos.filter(toDo => !!toDo.completed).length;
   const totalToDos = toDos.length;
@@ -23,38 +24,36 @@ function ToDoProvider({ children }) {
     }
   );
 
-  const completeToDo =useCallback((text) => {
+  const completeToDo = (text) => {
     const newToDos = [...toDos];
     const toDoIndex = newToDos.findIndex(
       (toDo) => toDo.text === text
     );
     newToDos[toDoIndex].completed = true;
     saveToDos(newToDos);
-  }, [saveToDos, toDos]);
+  };
 
-  const deleteToDo =useCallback((text) => {
+  const deleteToDo =(text) => {
     const newToDos = [...toDos];
     const toDoIndex = newToDos.findIndex(
       (toDo) => toDo.text === text
     );
     newToDos.splice(toDoIndex, 1);
     saveToDos(newToDos);
-  }, [saveToDos, toDos]);
+  };
 
-  const toDoProps = useMemo(() => ({
-      loading,
+  return (
+    <ToDoContext.Provider value={{loading,
       error,
       completedToDos,
       totalToDos,
+      searchedToDos,
       searchValue,
       setSearchValue,
-      searchedToDos,
       completeToDo,
       deleteToDo,
-}), [completeToDo, completedToDos, deleteToDo, error, loading, searchValue, searchedToDos, totalToDos]);
-
-  return (
-    <ToDoContext.Provider value={toDoProps}>
+      openModal,
+      setOpenModal,}}>
       {children}
     </ToDoContext.Provider>
   )

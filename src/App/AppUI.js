@@ -3,11 +3,12 @@ import React, { useContext } from 'react';
 import { ToDoCounter } from '../components/ToDoCounter';
 import { ToDoSearcher } from '../components/ToDoSearcher';
 import { ToDoList } from '../components/ToDoList';
-import { CreateToDoButton } from '../components/CreateToDoButton';
 import { ToDoItem } from '../components/ToDoItem';
 import { ToDoLoading } from '../components/ToDoLoading';
 import { ToDoError } from '../components/ToDoError';
 import { EmptyToDo } from '../components/EmptyToDo';
+import { CreateToDoButton } from '../components/CreateToDoButton';
+import { Modal } from '../Modal';
 
 import { ToDoContext } from '../Context';
 
@@ -19,8 +20,11 @@ function AppUI() {
     error,
     searchedToDos,
     completeToDo,
-    deleteToDo
+    deleteToDo,
+    openModal,
+    setOpenModal,
   } = useContext(ToDoContext);
+    console.log("🚀 ~ file: AppUI.js:28 ~ AppUI ~ openModal:", openModal);
 
   return (
     <>
@@ -29,12 +33,10 @@ function AppUI() {
 
       <ToDoList>
         {loading && (
-          <>
             <ToDoLoading />
-          </>
         )}
         {error && <ToDoError />}
-        {(!loading && searchedToDos.lenght === 0) && <EmptyToDo />}
+        {(!loading && searchedToDos.length === 0) && <EmptyToDo />}
 
         {searchedToDos.map(toDo => (
           <ToDoItem
@@ -47,10 +49,18 @@ function AppUI() {
         ))}
       </ToDoList>
 
-      <CreateToDoButton />
+      <CreateToDoButton setOpenModal={setOpenModal}/>
+
+      {openModal && (
+        <Modal>
+          Add To Do
+        </Modal>
+      )}
     </>
-  )
+  );
 }
+
+export { AppUI };
 
 /* const renderTodoItemList = (searchedToDos, completeToDo, deleteToDo) => searchedToDos.map((toDo) => (
   <ToDoItem
@@ -166,5 +176,3 @@ function AppUI() {
       {loading ? < ToDoLoading /> : renderUI(renderUIProps)}
     </div>
   );  */
-
-export { AppUI };
