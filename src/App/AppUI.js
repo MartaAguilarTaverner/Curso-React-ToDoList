@@ -8,11 +8,13 @@ import { ToDoLoading } from '../components/ToDoLoading';
 import { ToDoError } from '../components/ToDoError';
 import { EmptyToDo } from '../components/EmptyToDo';
 import { CreateToDoButton } from '../components/CreateToDoButton';
+import { ToDoForm } from '../components/ToDoForm';
 import { Modal } from '../Modal';
 
 import { ToDoContext } from '../Context';
 
 import './App.css';
+
 
 function AppUI() {
   const {
@@ -53,7 +55,7 @@ function AppUI() {
 
       {openModal && (
         <Modal>
-          Add To Do
+          <ToDoForm />
         </Modal>
       )}
     </>

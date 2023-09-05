@@ -24,6 +24,15 @@ function ToDoProvider({ children }) {
     }
   );
 
+  const addToDo = (text) => {
+    const newToDos = [...toDos];
+    newToDos.push({
+      text,
+      completed: false,
+    })
+    saveToDos(newToDos);
+  };
+
   const completeToDo = (text) => {
     const newToDos = [...toDos];
     const toDoIndex = newToDos.findIndex(
@@ -53,6 +62,7 @@ function ToDoProvider({ children }) {
       completeToDo,
       deleteToDo,
       openModal,
+      addToDo,
       setOpenModal,}}>
       {children}
     </ToDoContext.Provider>
