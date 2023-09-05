@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./ToDoCounter.css";
+import { ToDoContext } from "../../Context";
 
-function ToDoCounter ({ total, completed }) {
+function ToDoCounter () {
+  const {
+    completedToDos,
+    totalToDos,
+  } = useContext(ToDoContext)
   return (
 
-    total === completed ?
+    totalToDos === completedToDos ?
 
       <div className="completedAllTasks">
         <h1>
@@ -16,7 +21,7 @@ function ToDoCounter ({ total, completed }) {
 
       <div className="completedTasks">
         <h1>
-          Completed <span className="Number-finished">{completed}</span> of <span className="Number-total">{total}</span> tasks.
+          Completed <span className="Number-finished">{completedToDos}</span> of <span className="Number-total">{totalToDos}</span> tasks.
         </h1>
       </div>
   );

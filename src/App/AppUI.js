@@ -9,9 +9,125 @@ import { ToDoLoading } from '../components/ToDoLoading';
 import { ToDoError } from '../components/ToDoError';
 import { EmptyToDo } from '../components/EmptyToDo';
 
-import './App.css'
+import { ToDoContext } from '../Context';
 
-const renderTodoItemList = (searchedToDos, completeToDo, deleteToDo) => searchedToDos.map((toDo) => (
+import './App.css';
+
+function AppUI() {
+  return (
+    <>
+      <ToDoCounter />
+      <ToDoSearcher />
+
+      <ToDoContext.Consumer >
+        {({
+          loading,
+          error,
+          searchedToDos,
+          completeToDo,
+          deleteToDo
+        }) => (
+          <ToDoList>
+            {loading && (
+              <>
+                <ToDoLoading />
+              </>
+            )}
+            {error && <ToDoError />}
+            {(!loading && searchedToDos.lenght === 0) && <EmptyToDo />}
+
+            {searchedToDos.map(toDo => (
+              <ToDoItem
+                key={toDo.text}
+                text={toDo.text}
+                completed={toDo.completed}
+                onComplete={() => completeToDo(toDo.text)}
+                onDelete={() => deleteToDo(toDo.text)}
+              />
+            ))}
+          </ToDoList>
+        )}
+      </ToDoContext.Consumer>
+
+
+      <CreateToDoButton />
+    </>
+  )
+}
+
+/* const renderTodoItemList = (searchedToDos, completeToDo, deleteToDo) => searchedToDos.map((toDo) => (
+  <ToDoItem
+    key={toDo.text}
+    text={toDo.text}
+    completed={toDo.completed}
+    onComplete={() => completeToDo(toDo.text)}
+    onDelete={() => deleteToDo(toDo.text)}
+  />
+));
+
+const renderToDoList = (error, searchedToDos, completeToDo, deleteToDo) => (
+  <ToDoList>
+      {error && <ToDoError/>}
+      {searchedToDos.length === 0
+        ? <EmptyToDo />
+        : renderTodoItemList(searchedToDos, completeToDo, deleteToDo)
+      }
+  </ToDoList>
+);
+
+const renderUI = (error, searchedToDos, completeToDo, deleteToDo) => {
+  const renderToDoListProps = {
+    error,
+    searchedToDos,
+    completeToDo,
+    deleteToDo
+  };
+
+  return <>
+    <ToDoCounter />
+    <ToDoSearcher />
+    {renderToDoList(renderToDoListProps)}
+    <CreateToDoButton />
+  </>
+};
+
+function AppUI(loading) {
+  return (
+    <div className="App">
+      {loading ? < ToDoLoading /> : renderUI()}
+    </div>
+  );
+
+
+    return (
+    <div className="App">
+      <ToDoCounter completed={completedToDos} total={totalToDos} />
+
+      <ToDoSearcher searchValue={searchValue} setSearchValue={setSearchValue} />
+
+      <ToDoList>
+        {loading && <p>Loading...</p>}
+        {error && <p>Alert Error!!!</p>}
+        {(!loading && searchedToDos.lenght === 0) && <p>Create your first To Do!!</p>}
+
+        {searchedToDos.map((toDo) => (
+          <ToDoItem
+            key={toDo.text}
+            text={toDo.text}
+            completed={toDo.completed}
+            onComplete={() => completeToDo(toDo.text)}
+            onDelete={() => deleteToDo(toDo.text)}
+          />
+        ))}
+      </ToDoList>
+
+      <CreateToDoButton />
+
+    </div>
+  );
+}
+
+ const renderTodoItemList = (searchedToDos, completeToDo, deleteToDo) => searchedToDos.map((toDo) => (
   <ToDoItem
     key={toDo.text}
     text={toDo.text}
@@ -47,61 +163,11 @@ const renderUI = (renderUIProps) => {
   </>
 };
 
-function AppUI({
-  loading,
-  error,
-  completedToDos,
-  totalToDos,
-  searchValue,
-  setSearchValue,
-  searchedToDos,
-  completeToDo,
-  deleteToDo,
-}) {
-  const renderUIProps = {
-    completedToDos,
-    totalToDos,
-    searchValue,
-    setSearchValue,
-    error,
-    searchedToDos,
-    completeToDo,
-    deleteToDo
-  };
-
+function AppUI() {
   return (
     <div className="App">
       {loading ? < ToDoLoading /> : renderUI(renderUIProps)}
     </div>
-  );
-
-
-  /* return (
-    <div className="App">
-      <ToDoCounter completed={completedToDos} total={totalToDos} />
-
-      <ToDoSearcher searchValue={searchValue} setSearchValue={setSearchValue} />
-
-      <ToDoList>
-        {loading && <p>Loading...</p>}
-        {error && <p>Alert Error!!!</p>}
-        {(!loading && searchedToDos.lenght === 0) && <p>Create your first To Do!!</p>}
-
-        {searchedToDos.map((toDo) => (
-          <ToDoItem
-            key={toDo.text}
-            text={toDo.text}
-            completed={toDo.completed}
-            onComplete={() => completeToDo(toDo.text)}
-            onDelete={() => deleteToDo(toDo.text)}
-          />
-        ))}
-      </ToDoList>
-
-      <CreateToDoButton />
-
-    </div>
-  ); */
-}
+  );  */
 
 export { AppUI };

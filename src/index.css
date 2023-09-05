@@ -11,6 +11,12 @@ body {
 #root {
   position: relative;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background: radial-gradient(circle at 18.7% 37.8%, rgb(238, 238, 238) 0%, rgb(146, 146, 146) 90%);
 }
 
 code {
