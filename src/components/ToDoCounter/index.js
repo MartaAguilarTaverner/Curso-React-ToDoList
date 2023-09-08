@@ -13,7 +13,7 @@ function ToDoCounter () {
 
       <div className="completedAllTasks">
         <h1>
-          Congratulations, you finished all the tasks!!
+          You don't have any tasks!!
         </h1>
       </div>
 
