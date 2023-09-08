@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Curso-React-ToDoList/static/css/main.3fcb1779.css",
-    "main.js": "/Curso-React-ToDoList/static/js/main.50cb7331.js",
+    "main.css": "/Curso-React-ToDoList/static/css/main.74be6a62.css",
+    "main.js": "/Curso-React-ToDoList/static/js/main.b5111170.js",
     "index.html": "/Curso-React-ToDoList/index.html",
-    "main.3fcb1779.css.map": "/Curso-React-ToDoList/static/css/main.3fcb1779.css.map",
-    "main.50cb7331.js.map": "/Curso-React-ToDoList/static/js/main.50cb7331.js.map"
+    "main.74be6a62.css.map": "/Curso-React-ToDoList/static/css/main.74be6a62.css.map",
+    "main.b5111170.js.map": "/Curso-React-ToDoList/static/js/main.b5111170.js.map"
   },
   "entrypoints": [
-    "static/css/main.3fcb1779.css",
-    "static/js/main.50cb7331.js"
+    "static/css/main.74be6a62.css",
+    "static/js/main.b5111170.js"
   ]
 }
