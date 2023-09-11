@@ -6,6 +6,7 @@
     "react-dom": "^18",
     "react-icons": "^4.10.1",
     "react-scripts": "5.0.1",
+    "sass": "^1.66.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -32,7 +33,7 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "/Users/Usuario/Desktop/PLATZI/INTRODUCCI%C3%93N%20A%20REACT.JS/TODO%20LIST/build/",
+  "homepage": "https://martaaguilartaverner.github.io/Curso-React-ToDoList",
   "devDependencies": {
     "gh-pages": "^6.0.0"
   }

@@ -3,7 +3,7 @@ import './EmptyToDo.css';
 
 function EmptyToDo() {
   return (
-    <p>Create your first task!!</p>
+    <p style={{ textAlign: 'center' }}>Create your first task!!</p>
   )
 }
 

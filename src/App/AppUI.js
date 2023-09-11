@@ -26,7 +26,6 @@ function AppUI() {
     openModal,
     setOpenModal,
   } = useContext(ToDoContext);
-    console.log("🚀 ~ file: AppUI.js:28 ~ AppUI ~ openModal:", openModal);
 
   return (
     <>

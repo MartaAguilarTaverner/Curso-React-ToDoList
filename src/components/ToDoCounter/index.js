@@ -1,30 +1,25 @@
 import React, { useContext } from "react";
-import "./ToDoCounter.css";
+
 import { ToDoContext } from "../../Context";
+
+import "./ToDoCounter.scss";
 
 function ToDoCounter () {
   const {
     completedToDos,
     totalToDos,
-  } = useContext(ToDoContext)
-  return (
+  } = useContext(ToDoContext);
 
-    totalToDos === completedToDos ?
-
-      <div className="completedAllTasks">
-        <h1>
+  return <div className="completed-tasks">
+    {totalToDos === completedToDos
+      ? <h1 className="completed-all-tasks-h1-text">
           You don't have any tasks!!
         </h1>
-      </div>
-
-    :
-
-      <div className="completedTasks">
-        <h1>
-          Completed <span className="Number-finished">{completedToDos}</span> of <span className="Number-total">{totalToDos}</span> tasks.
+      : <h1 className="completed-tasks-h1-text">
+          Completed <span className="number-finished">{completedToDos}</span> of <span className="number-total">{totalToDos}</span> tasks.
         </h1>
-      </div>
-  );
+    }
+  </div>
 };
 
 export { ToDoCounter };
